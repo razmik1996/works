@@ -1,11 +1,27 @@
 #include <iostream>
+#include <time.h>
 
 template <class T>
 void quickSort(T* array, int left, int right);
 
 int main()
 {
+	srand((unsigned)time(NULL));
+	int testArray[] = { 1,5,6,9,5,3,2,1,12,6 };
+	for (int i = 0; i < 10; i++) {
+		std::cout << testArray[i] << " ";
+	}
+	std::cout << std::endl;
 
+	quickSort(testArray, 0, 9);
+
+	for (int i = 0; i < 10; i++) {
+		std::cout << testArray[i] << " ";
+	}
+	std::cout << std::endl;
+
+	system("PAUSE");
+	return 0;
 }
 
 template<class T>
@@ -19,7 +35,7 @@ void quickSort(T* array, int left, int right)
 		return;
 	}
 
-	T x = array[(left + right) / 2];
+	T x = array[left + rand() % (right - left)];
 
 	leftIter = left;
 	rightIter = right;
@@ -31,11 +47,11 @@ void quickSort(T* array, int left, int right)
 		if (leftIter <= rightIter) {
 			copy = array[leftIter];
 			array[leftIter] = array[rightIter];
-			array[rightIter] = array[leftIter];
+			array[rightIter] = copy;
 			leftIter++;
 			rightIter--;
 		}
 	}
-	quickSort(*array, left, rightIter);
-	quickSort(*array, leftIter, right);
+	quickSort(array, left, rightIter);
+	quickSort(array, leftIter, right);
 }

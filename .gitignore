@@ -36,3 +36,11 @@ $RECYCLE.BIN/
 *.obj
 *.idb
 *.pdb
+BinarInsertSort/.vs/BinarInsertSort/v15/.suo
+*.db
+*.opendb
+*.ipch
+*.sln
+*.exe
+*.ilk
+QuickSortHoare/.vs/QuickSortHoare/v15/.suo

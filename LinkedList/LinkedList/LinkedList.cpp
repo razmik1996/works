@@ -29,16 +29,50 @@ void LinkedList<T>::pushBack(const T & data)
 template<class T>
 void LinkedList<T>::removeBegin()
 {
+	node<T> delItem;
+	if (head == 0) {
+		throw RemoveItemException();
+	}
+
+	delItem = head;
+	head = head->next;
+	delete delItem;
+	return;
 }
 
 template<class T>
 void LinkedList<T>::removeAll()
 {
+	if (head == 0) {
+		throw RemoveItemException();
+	}
+
+	while (head != 0) {
+		removeBegin();
+	}
+	return;
 }
 
 template<class T>
 void LinkedList<T>::removeEnd()
 {
+	if (head == 0) {
+		throw RemoveItemException();
+	}
+
+	node<T> *current = head;
+	if (current->next == 0) {
+		removeBegin();
+		return;
+	}
+
+	while (current->next->next != 0) {
+		current->next = current;
+	}
+
+	delete current->next;
+	current->next = 0;
+	return;
 }
 
 template<class T>

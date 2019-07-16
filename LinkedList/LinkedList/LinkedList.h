@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+template <class T>
 class LinkedList
 {
 public:
@@ -16,7 +18,28 @@ private:
 		}
 	};
 public:
-	LinkedList();
-	~LinkedList();
+	LinkedList() 
+	{
+		head = 0;
+	}
+	~LinkedList()
+	{
+		if (!isEmpty()) {
+			removeAll();
+		}
+	}
+public:
+	bool isEmpty() {
+		return head == 0;
+	}
+	
+	void pushBegin(const T& data);
+	void pushBack(const T& data);
+	void removeBegin();
+	void removeAll();
+	void removeEnd();
+	bool hasItem(const T& dataForFind);
+	void print(ostream& out = cout);
+private:
+	node<T> *head;
 };
-

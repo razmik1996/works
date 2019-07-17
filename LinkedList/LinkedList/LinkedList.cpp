@@ -78,6 +78,15 @@ void LinkedList<T>::removeEnd()
 template<class T>
 bool LinkedList<T>::hasItem(const T & dataForFind)
 {
+	node<T>* currentItem;
+		
+	currentItem = head;
+	while (currentItem != 0) {
+		if (currentItem->data = dataForFind) {
+			return true;
+		}
+		currentItem = currentItem->next;
+	}
 	return false;
 }
 

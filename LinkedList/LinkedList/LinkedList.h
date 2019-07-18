@@ -17,7 +17,7 @@ private:
 		}
 	};
 public:
-	friend std::ostream& operator<<(std::ostream& os, const node& data);
+	/*friend std::ostream& operator<<(std::ostream& os, const node& data);*/
 	LinkedList()
 	{
 		head = 0;
@@ -38,8 +38,7 @@ public:
 	void removeAll();
 	void removeEnd();
 	bool hasItem(const int dataForFind);
-	void print();
-	//std::ostream& operator<<(std::ostream& out, node<T>& other);
+	/*void print();*/
 private:
 	node *head;
 };

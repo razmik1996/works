@@ -1,23 +1,22 @@
 #include "LinkedList.h"
 
-template<class T>
-inline void LinkedList<T>::pushBegin(const T & data)
+void LinkedList::pushBegin(const int data)
 {
-	Node <T> *item = new Node<T>(data, head);
+	node *item = new node(data, head);
 	head = item;
 }
 
-template<class T>
-void LinkedList<T>::pushBack(const T & data)
+
+void LinkedList::pushBack(const int data)
 {
-	Node<T> *item = new Node<T>(data);
+	node *item = new node(data);
 
 	if (head == 0) {
 		head = item;
 		return;
 	}
 
-	node<T> *current = head;
+	node *current = head;
 	while (current->next != 0) {
 		current = current->next;
 	}
@@ -26,10 +25,10 @@ void LinkedList<T>::pushBack(const T & data)
 	return;
 }
 
-template<class T>
-void LinkedList<T>::removeBegin()
+
+void LinkedList::removeBegin()
 {
-	node<T> delItem;
+	node *delItem;
 	if (head == 0) {
 		throw RemoveItemException();
 	}
@@ -40,8 +39,8 @@ void LinkedList<T>::removeBegin()
 	return;
 }
 
-template<class T>
-void LinkedList<T>::removeAll()
+
+void LinkedList::removeAll()
 {
 	if (head == 0) {
 		throw RemoveItemException();
@@ -53,14 +52,13 @@ void LinkedList<T>::removeAll()
 	return;
 }
 
-template<class T>
-void LinkedList<T>::removeEnd()
+void LinkedList::removeEnd()
 {
 	if (head == 0) {
 		throw RemoveItemException();
 	}
 
-	node<T> *current = head;
+	node *current = head;
 	if (current->next == 0) {
 		removeBegin();
 		return;
@@ -75,11 +73,10 @@ void LinkedList<T>::removeEnd()
 	return;
 }
 
-template<class T>
-bool LinkedList<T>::hasItem(const T & dataForFind)
+bool LinkedList::hasItem(const int dataForFind)
 {
-	node<T>* currentItem;
-		
+	node* currentItem;
+
 	currentItem = head;
 	while (currentItem != 0) {
 		if (currentItem->data = dataForFind) {
@@ -90,7 +87,19 @@ bool LinkedList<T>::hasItem(const T & dataForFind)
 	return false;
 }
 
-template<class T>
-void LinkedList<T>::print(ostream & out)
-{
-}
+
+//void LinkedList::print()
+//{
+//	node *current;
+//	current = head;
+//	while (current != 0) {
+//		std::cout << current.data << " ";
+//		current = current->next;
+//	}
+//	return;
+//}
+
+//std::ostream & operator<<(std::ostream & os, const node & data)
+//{
+//	// TODO: вставьте здесь оператор return
+//}

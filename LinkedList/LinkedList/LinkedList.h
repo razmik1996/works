@@ -1,24 +1,24 @@
 #pragma once
 #include <iostream>
-template <class T>
+
 class LinkedList
 {
 public:
-	class RemoveItemException {}; 
+	class RemoveItemException {};
 	class InsertItemException {};
 private:
-	template <class T>
-	struct node {
-		T data;
-		node<T>* next;
+	struct node{
+		int data;
+		node* next;
 
-		node(const T& data, node<T>* ptr = 0) {
+		node(const int& data, node* ptr = 0) {
 			this->data = data;
 			this->next = ptr;
 		}
 	};
 public:
-	LinkedList() 
+	friend std::ostream& operator<<(std::ostream& os, const node& data);
+	LinkedList()
 	{
 		head = 0;
 	}
@@ -28,18 +28,18 @@ public:
 			removeAll();
 		}
 	}
-public:
 	bool isEmpty() {
 		return head == 0;
 	}
-	
-	void pushBegin(const T& data);
-	void pushBack(const T& data);
+
+	void pushBegin(const int data);
+	void pushBack(const int data);
 	void removeBegin();
 	void removeAll();
 	void removeEnd();
-	bool hasItem(const T& dataForFind);
-	void print(ostream& out = cout);
+	bool hasItem(const int dataForFind);
+	void print();
+	//std::ostream& operator<<(std::ostream& out, node<T>& other);
 private:
-	node<T> *head;
+	node *head;
 };

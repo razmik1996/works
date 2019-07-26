@@ -15,6 +15,10 @@ public:
 		}
 
 	};
+	Stack &operator++();
+	int operator++(int);
+	Stack &operator--();
+	int operator--(int);
 	Stack();
 	void pop();
 	Stack push(const int&);

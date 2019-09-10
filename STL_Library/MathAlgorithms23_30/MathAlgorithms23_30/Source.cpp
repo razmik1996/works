@@ -24,7 +24,7 @@ int main()
 	std::ostream_iterator<int> outputIter(cout, " ");
 
 	std::list<int> ListC(a1, a1 + SIZE);
-	std::random_shuffle(ListC.begin(), ListC.end());
+	//std::random_shuffle(ListC.begin(), ListC.end()); it's not true
 
 	cout << "Vector vec1 before random_Shuffle: ";
 	std::copy(vec1.begin(), vec1.end(), outputIter);
